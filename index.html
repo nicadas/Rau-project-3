@@ -26,6 +26,7 @@
       width: 100%;
       max-width: 900px;
       margin: auto;
+      margin-top: 40px;
     }
     .hand {
       display: flex;
@@ -39,16 +40,16 @@
       transform: scale(1.05);
     }
     .hand img {
-      width: 150px;
+      width: 180px;
     }
     .hand span {
       margin-top: 10px;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: bold;
       text-shadow: 1px 1px 4px #000;
     }
     .choices {
-      display: none; /* só aparece quando clica no jogador */
+      display: none; /* aparece só quando clicar no jogador */
       justify-content: center;
       gap: 20px;
       margin-top: 30px;
@@ -91,7 +92,7 @@
     <h1>Pedra, Papel, Tesoura, Lagarto & Spock</h1>
   </header>
 
-  <!-- Mãos -->
+  <!-- Menu de mãos -->
   <div class="hands-container">
     <div class="hand" onclick="showChoices()">
       <img src="mao.png" alt="Mão do jogador">
