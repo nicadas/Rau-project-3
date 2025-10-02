@@ -34,13 +34,13 @@
       align-items: center;
       cursor: pointer;
       user-select: none;
-      transition: transform 0.2s;
-    }
-    .hand:hover {
-      transform: scale(1.05);
     }
     .hand img {
       width: 180px;
+      transition: transform 0.3s ease;
+    }
+    .hand:hover img {
+      transform: scale(1.1) rotate(-5deg);
     }
     .hand span {
       margin-top: 10px;
@@ -74,6 +74,9 @@
       transform: scale(1.1);
       box-shadow: 0 0 15px rgba(255,255,255,0.8);
     }
+    .choice:active {
+      transform: scale(0.9);
+    }
     .result-box {
       margin-top: 40px;
       padding: 20px;
@@ -84,6 +87,13 @@
       max-width: 400px;
       margin-left: auto;
       margin-right: auto;
+    }
+    footer {
+      text-align: center;
+      margin-top: auto;
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+      font-size: 14px;
     }
   </style>
 </head>
@@ -129,6 +139,11 @@
     <p id="text-ia">IA escolheu: —</p>
   </div>
 
+  <!-- Créditos -->
+  <footer>
+    Projeto acadêmico desenvolvido para a <strong>UERN</strong>
+  </footer>
+
   <script>
     const options = ["pedra", "papel", "tesoura", "lagarto", "spock"];
     const rules = {
@@ -168,6 +183,19 @@
     }
 
     function iaPlay() {
+      // pega a jogada mais usada do jogador
+      let mostPlayed = Object.keys(counts).reduce((a, b) =>
+        counts[a] > counts[b] ? a : b
+      );
+
+      // pega jogadas que vencem a mais usada
+      let counters = Object.keys(rules).filter(choice => rules[choice].includes(mostPlayed));
+
+      // 70% chance da IA tentar vencer, 30% aleatória
+      if (Math.random() < 0.7 && counters.length > 0) {
+        return counters[Math.floor(Math.random() * counters.length)];
+      }
+
       return options[Math.floor(Math.random() * options.length)];
     }
 
