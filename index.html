@@ -39,6 +39,12 @@
       width: 180px;
       transition: transform 0.3s ease;
     }
+    .hand.jogador img {
+      transform: scaleX(-1);
+    }
+    .hand.ia img {
+      transform: scaleX(1);
+    }
     .hand:hover img {
       transform: scale(1.1) rotate(-5deg);
     }
@@ -104,12 +110,12 @@
 
   <!-- Menu de mãos -->
   <div class="hands-container">
-    <div class="hand" onclick="showChoices()">
+    <div class="hand jogador" onclick="showChoices()">
       <img src="mão.png" alt="Mão do jogador">
       <span>Jogador</span>
     </div>
-    <div class="hand" onclick="alertIA()">
-      <img src="mão.png" style="transform: scaleX(1);" alt="Mão da IA">
+    <div class="hand ia" onclick="alertIA()">
+      <img src="mão.png" alt="Mão da IA">
       <span>IA</span>
     </div>
   </div>
@@ -183,15 +189,12 @@
     }
 
     function iaPlay() {
-      // pega a jogada mais usada do jogador
       let mostPlayed = Object.keys(counts).reduce((a, b) =>
         counts[a] > counts[b] ? a : b
       );
 
-      // pega jogadas que vencem a mais usada
       let counters = Object.keys(rules).filter(choice => rules[choice].includes(mostPlayed));
 
-      // 70% chance da IA tentar vencer, 30% aleatória
       if (Math.random() < 0.7 && counters.length > 0) {
         return counters[Math.floor(Math.random() * counters.length)];
       }
@@ -205,6 +208,3 @@
   </script>
 </body>
 </html>
-
-
-
