@@ -14,11 +14,13 @@
       flex-direction: column;
       min-height: 100vh;
     }
+
     header {
       text-align: center;
       margin: 20px;
       text-shadow: 2px 2px 8px #000;
     }
+
     .hands-container {
       display: flex;
       justify-content: space-between;
@@ -28,6 +30,7 @@
       margin: auto;
       margin-top: 40px;
     }
+
     .hand {
       display: flex;
       flex-direction: column;
@@ -35,21 +38,21 @@
       cursor: pointer;
       user-select: none;
     }
-    .hand img {
+
+    .hand.jogador img {
+      transform: scaleX(-1); /* Espelha horizontalmente a imagem da mão do jogador */
       width: 180px;
       transition: transform 0.3s ease;
     }
-    .hand.jogador:hover img {
-  transform: scaleX(1) scale(1.1);
-}
-  .hand.ia:hover img {
-  transform: scaleX(1) scale(1.1);
-}
-      .hand:hover img {
-      transform: scale(1.1);
+
+    .hand.ia img {
+      width: 180px;
+      transition: transform 0.3s ease;
     }
 
-
+    .hand:hover img {
+      transform: scale(1.1); /* Zoom igual para ambas as mãos */
+    }
 
     .hand span {
       margin-top: 10px;
@@ -57,6 +60,7 @@
       font-weight: bold;
       text-shadow: 1px 1px 4px #000;
     }
+
     .choices {
       display: none; /* aparece só quando clicar no jogador */
       justify-content: center;
@@ -64,6 +68,7 @@
       margin-top: 30px;
       flex-wrap: wrap;
     }
+
     .choice {
       width: 100px;
       height: 100px;
@@ -74,18 +79,22 @@
       transition: transform 0.25s, box-shadow 0.25s;
       background-color: rgba(0,0,0,0.4);
     }
+
     .choice img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .choice:hover {
       transform: scale(1.1);
       box-shadow: 0 0 15px rgba(255,255,255,0.8);
     }
+
     .choice:active {
       transform: scale(0.9);
     }
+
     .result-box {
       margin-top: 40px;
       padding: 20px;
@@ -97,6 +106,7 @@
       margin-left: auto;
       margin-right: auto;
     }
+
     footer {
       text-align: center;
       margin-top: auto;
@@ -134,8 +144,8 @@
     <div class="choice" onclick="playerPlay('tesoura')">
       <img src="tesoura.jpg" alt="Tesoura">
     </div>
-    <div class="choice" onclick="playerPlay('largato')">
-      <img src="largato.jpg" alt="Largato">
+    <div class="choice" onclick="playerPlay('lagarto')">
+      <img src="largato.jpg" alt="Lagarto">
     </div>
     <div class="choice" onclick="playerPlay('spock')">
       <img src="spock.jpg" alt="Spock">
@@ -211,7 +221,3 @@
   </script>
 </body>
 </html>
-
-
-
-
