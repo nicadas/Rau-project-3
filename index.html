@@ -39,15 +39,17 @@
       width: 180px;
       transition: transform 0.3s ease;
     }
-    .hand.jogador img {
-      transform: scaleX(-1);
-    }
-    .hand.ia img {
-      transform: scaleX(1);
-    }
+    .hand.jogador:hover img {
+  transform: scaleX(-1) scale(1.1);
+}
+  .hand.ia:hover img {
+  transform: scaleX(1) scale(1.1);
+}
       .hand:hover img {
       transform: scale(1.1);
     }
+
+
 
     .hand span {
       margin-top: 10px;
